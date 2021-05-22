@@ -1,0 +1,36 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+body{
+    padding:10px;
+}
+
+.bold{
+    font-weight:bolder;
+   color:black;
+}
+.align-right{
+
+    float:right;
+}
+footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    position: fixed;
+    color:blue;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
