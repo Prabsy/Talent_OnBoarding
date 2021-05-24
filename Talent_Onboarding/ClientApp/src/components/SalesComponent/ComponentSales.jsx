@@ -129,11 +129,11 @@ class ComponentSales extends Component {
 
     sortByDate = () => {
         if (this.state.togglesortdatedesc == false) {
-            this.setState({ sales: this.state.sales.sort((a, b) => a.store.dateSold < b.store.dateSold ? 1 : -1) })
+            this.setState({ sales: this.state.sales.sort((a, b) => new Date(a.dateSold) < new Date(b.dateSold) ? 1 : -1) })
             this.setState({ togglesortdatedesc: !this.state.togglesortdatedesc })
         }
         else {
-            this.setState({ sales: this.state.sales.sort((a, b) => a.store.dateSold > b.store.dateSold ? 1 : -1) })
+            this.setState({ sales: this.state.sales.sort((a, b) => new Date(a.dateSold) > new Date(b.dateSold) ? 1 : -1) })
             this.setState({ togglesortdatedesc: !this.state.togglesortdatedesc })
 
         }
