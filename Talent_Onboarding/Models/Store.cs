@@ -20,7 +20,6 @@ namespace Talent_Onboarding.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Address is required"), MaxLength(100, ErrorMessage = "Max Length Exceeded for Address")]
         public string Address { get; set; }
-
         public virtual ICollection<Sales> Sales { get; set; }
     }
 }

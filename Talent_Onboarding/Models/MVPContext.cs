@@ -28,7 +28,7 @@ namespace Talent_Onboarding.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LOXTIPL0012429\\SQLEXPRESS;Database=MVP;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:mvpdbserver.database.windows.net,1433;Initial Catalog=MVP;Persist Security Info=False;User ID=intern;Password=Prabsypola@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -38,7 +38,7 @@ namespace Talent_Onboarding.Models
             {
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name)
@@ -51,7 +51,7 @@ namespace Talent_Onboarding.Models
             {
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(100)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
@@ -62,16 +62,19 @@ namespace Talent_Onboarding.Models
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Sales)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Sales_Customer");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.Sales)
                     .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Sales_Product");
 
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Sales)
                     .HasForeignKey(d => d.StoreId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Sales_Store");
             });
 
@@ -79,7 +82,7 @@ namespace Talent_Onboarding.Models
             {
                 entity.Property(e => e.Address)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name)
